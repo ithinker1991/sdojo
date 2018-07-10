@@ -2,17 +2,49 @@ pragma solidity ^0.4.0;
 
 contract AddressDemo{
     address public owner;
-    address boss;
+    address public origin;
+
+    // TODO array and address
+
+    mapping(address => uint) public addr2int;
+    mapping(uint => address) public int2addr;
+
+
+    function recordBalance() public{
+        addr2int[msg.sender] = msg.sender.balance;
+
+    }
+
+    function setIntMap(uint n) public{
+        int2addr[n] = msg.sender;
+    }
+
+    function setIntMap(uint n, address addr) public {
+        int2addr[n] = addr;
+    }
+
+    function getBalanceByAddr() public constant returns(uint) {
+        return addr2int[msg.sender];
+    }
+
+    function getBalanceByAddr(address addr) public constant returns(uint){
+        return addr2int[addr];
+    }
+
+    function getAddressByInt(uint n) public constant returns(address){
+        return int2addr[n];
+    }
 
     constructor() payable public {
         owner = msg.sender;
+        origin = msg.sender;
     }
 
     function change_owner(address _owner) public{
         owner = _owner;
     }
 
-    function is_me() constant public returns(bool){
+    function isOwner() constant public returns(bool){
         if (owner == msg.sender) {
             return true;
         } else {
