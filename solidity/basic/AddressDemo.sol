@@ -40,7 +40,7 @@ contract AddressDemo{
         origin = msg.sender;
     }
 
-    function change_owner(address _owner) public{
+    function change_owner(address _owner) public {
         owner = _owner;
     }
 
