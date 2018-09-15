@@ -182,6 +182,7 @@ contract FoMo3Dlong is modularLong {
     using NameFilter for string;
     using F3DKeysCalcLong for uint256;
 
+    // TODO 这些引用的合约都是什么呢？
     otherFoMo3D private otherF3D_;
     DiviesInterface constant private Divies = DiviesInterface(0xc7029Ed9EBa97A096e72607f4340c34049C7AF48);
     JIincForwarderInterface constant private Jekyll_Island_Inc = JIincForwarderInterface(0xdd4950F977EE28D2C132f1353D1595035Db444EE);
